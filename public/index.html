@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>頭像製作</title>
+    <link rel="stylesheet" href="./stylesheets/style.css">
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="./javascripts/webcam.min.js"></script>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+
+        <canvas id="imgFrame" class="imgFrame" width="400" height="400"></canvas>
+
+        <form action=""><!--action屬性值資料傳到後端的路徑-->
+            <input type="text" name="" id="inputName" placeholder="請輸入名稱">
+            <br>
+            <label class="btn btn-danger mt-2 mr-1" for="upImg">上傳照片</label>
+            <input style='display: none;' accept="image/*" type="file" id="upImg" onchange="fileUpLoad(this);"/>
+            <button type="button" class="btn btn-primary mr-1" id="takeAPic" data-toggle="modal" data-target="#exampleModal">使用照像</button>
+            <input class="btn btn-success" type="button" onclick="cutProfile()" value="頭像製作">
+        </form>
+
+        <div class="row d-flex align-items-center">
+            <canvas id="profile" width="300" height="300"></canvas>
+            <h3 class="fs-4" id="showName"></h3>
+        </div>
+
+         <!-- 照相機彈跳視窗 -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">啟動照相機</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+
+                    <div id="popCamera">
+                        <div id="cameraDiv"></div>
+                        <div class="form-group">
+                            <label class="control-label" for="okButton"></label>
+                            <div>
+                              
+                            </div>
+                        </div>
+                        <pre id="reportHere"></pre>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" id="okButton" name="okButton" class="btn btn-primary" data-dismiss="modal">OK</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+    </div>
+
+<script src="./javascripts/all.js"></script>
+</body>
+</html>
